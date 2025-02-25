@@ -1,17 +1,9 @@
-DROP TABLE IF EXISTS Component_Structure CASCADE;
-DROP TABLE IF EXISTS Action CASCADE;
-DROP TABLE IF EXISTS Appearance CASCADE;
-DROP TABLE IF EXISTS Device CASCADE;
-DROP TABLE IF EXISTS Person CASCADE;
-DROP TABLE IF EXISTS Structure CASCADE;
-DROP TABLE IF EXISTS Component CASCADE;
-
 CREATE TABLE Component (
     component_id SERIAL PRIMARY KEY,
     name TEXT,
     type TEXT,
     material TEXT,
-    transparency INT CHECK(transparency >= 0 AND transparency <= 100)
+    transparency INT CHECK(transparency >= 0 AND transparency <= 100) 
 );
 
 CREATE TABLE Structure (
@@ -46,7 +38,7 @@ CREATE TABLE Action (
     start_time TIMESTAMPTZ NOT NULL,
     end_time TIMESTAMPTZ NOT NULL,
     person_id INT REFERENCES Person(person_id),
-    device_id INT REFERENCES Device(device_id),
+    device_id INT REFERENCES Device(device_id)
     CHECK (end_time > start_time)
 );
 
