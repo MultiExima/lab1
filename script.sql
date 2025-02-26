@@ -43,8 +43,8 @@ CREATE TABLE Person (
 CREATE TABLE Action (
     action_id SERIAL PRIMARY KEY,
     action_type TEXT NOT NULL,
-    start_time TIMESTAMPTZ NOT NULL,
-    end_time TIMESTAMPTZ NOT NULL,
+    start_time TIMESTAMPTZ,
+    end_time TIMESTAMPTZ,
     person_id INT REFERENCES Person(person_id),
     device_id INT REFERENCES Device(device_id)
     CHECK (end_time > start_time)
