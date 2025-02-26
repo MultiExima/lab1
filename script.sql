@@ -77,8 +77,8 @@ VALUES ('Электронный блок', false);
 INSERT INTO Action (action_type, start_time, end_time, person_id, device_id) 
 VALUES (
     'Отключение блока',
-    '2024-12-31 23:59:59',
-    '2025-01-01 00:00:00',
+    NULL,
+    NULL,
     1,
     1
 );
